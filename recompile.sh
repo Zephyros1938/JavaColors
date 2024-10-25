@@ -8,4 +8,4 @@ ls -aR | grep class
 javac Main.java
 
 # run program
-java Main FileData/Notes.zs
+java Main FileData/Notes.zsong

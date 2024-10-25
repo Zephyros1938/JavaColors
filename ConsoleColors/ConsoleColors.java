@@ -83,10 +83,8 @@ public class ConsoleColors {
     public static String HEX_BRIGHT_ZS(String keyCharacterBytes, String text) {
         // System.out.println(keyCharacterBytes);
         switch (keyCharacterBytes) {
-            case "------":
-                return "-";
-            case "______":
-                return RESET + " ";
+            case "CONTIN":
+                return text;
             case "RETURN":
                 return RESET + "\n";
             case "RESETT":
