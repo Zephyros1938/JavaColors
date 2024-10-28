@@ -8,12 +8,12 @@ public class Games {
     public static void noteGame(String[] args) throws FileNotFoundException {
         String data = Data.getFileData(args[0]);
 
-        String noteData = Data.getDataChunk("NOTE_DATA", data).replace("\n", " ");
-        String colorData = Data.getDataChunk("COLOR_DATA", data).replace("\n", " ");
+        String noteData = Data.getDataChunk("NOTE_DATA", data).replace("\n", "  ");
+        String colorData = Data.getDataChunk("COLOR_DATA", data).replace("\n", " RETURN ");
 
         String songData = Data.getDataChunk("SONG_DATA", data);
 
-        String[] noteDataSplit = noteData.replace("\n", " ").split(" ");
+        String[] noteDataSplit = noteData.split(" ");
         String[] colorDataSplit = colorData.split(" ");
 
         String totalData = new String();

@@ -18,7 +18,7 @@ Inbetween an end of a chunk and start of a chunk can be any data. this can be us
 
 The NOTE_DATA and COLOR_DATA chunks will always be 4 lines.
 
-The COLOR_DATA chunk will always be the same length as NOTE_DATA in terms of notes, with an added 3 RETURN values, which will be explained below.
+The COLOR_DATA chunk will always be the same length as NOTE_DATA in terms of note count and lines.
 
 ### NOTE_DATA
 
@@ -34,9 +34,8 @@ This chunk determines the background color of each note.
 
 #### Color Values
 
-Along with 3-byte hexadecimal colors, there are CONTIN, RETURN, and RESETT values.
+Along with 3-byte hexadecimal colors, there are CONTIN, and RESETT values.
 - CONTIN: copy the color from the previous note.
-- RETURN: always on the end of each line, except for the last line.
 - RESETT: reset the color back to the terminal's default.
 
 ### SONG_DATA
@@ -51,23 +50,23 @@ The content is arranged in this order:
 
 ```
 START_NOTE_DATA
-00 00 00 00 00 00 00 00 11 11 11 11 11 11 11 11 
-00 00 00 00 11 11 11 11 00 00 00 00 11 11 11 11 
-00 00 11 11 00 00 11 11 00 00 11 11 00 00 11 11 
-00 11 00 11 00 11 00 11 00 11 00 11 00 11 00 11 
+00 00 00 00 00 00 00 00 11 11 11 11 11 11 11 11
+00 00 00 00 11 11 11 11 00 00 00 00 11 11 11 11
+00 00 11 11 00 00 11 11 00 00 11 11 00 00 11 11
+00 11 00 11 00 11 00 11 00 11 00 11 00 11 00 11
 END_NOTE_DATA
 
-Example comment
+Example Comment
 
 START_COLOR_DATA
-FF0000 CONTIN CONTIN FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 RETURN
-00FF00 CONTIN CONTIN RESETT CONTIN CONTIN 00FFA0 CONTIN CONTIN 00FF00 00FF00 00FF00 00FF00 00FF00 00FF00 00FF00 RETURN
-0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF RESETT 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF RETURN
+FF0000 CONTIN CONTIN FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000
+00FF00 CONTIN CONTIN RESETT CONTIN CONTIN 00FFA0 CONTIN CONTIN 00FF00 00FF00 00FF00 00FF00 00FF00 00FF00 00FF00
+0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF RESETT 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF
 FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF RESETT FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF
 END_COLOR_DATA
 
 START_SONG_DATA
-Example song name
-Example song description
+Example Song Name
+Example Song Description
 END_SONG_DATA
 ```
