@@ -6,13 +6,13 @@ A .zsong file is a file for songs to be loaded by the [Games.notegame](/Games/Ga
 
 ### Summary
 
-Every chunk in a .zsong file will include a NOTE_VOLUME, NOTE_COLOR, and SONG_DATA chunk.
+Every chunk in a .zsong file will include a NOTE_\[VOLUME, PITCH, COLOR], and SONG_DATA chunk.
 
-These files can be read as text files.
+The .zsong file can be human-read.
 
 Every chunk will start with START_\[CHUNK NAME\] and end with END_\[CHUNK NAME\].
 
-Inbetween an end of a chunk and start of a chunk can be any data. this can be used as space for comments.
+Inbetween an end of a chunk and start of a chunk can be any data. this can be used as space for comments/metadata.
 
 #### NOTE_VOLUME, NOTE_PITCH, & NOTE_COLOR
 
@@ -50,7 +50,7 @@ Example: `52 15 c4`
 
 This chunk determines the background color of each note.
 
-#### Color Values
+#### Unique Values
 
 Along with 3-byte hexadecimal colors, there are CONTIN, and RESETT values.
 - CONTIN/CON/CO: copy the color from the previous note.
@@ -74,13 +74,18 @@ START_NOTE_VOLUME
 00 11 00 11 00 11 00 11 00 11 00 11 00 11 00 11
 END_NOTE_VOLUME
 
-Example Comment
+START_NOTE_PITCH
+1f 1f 1f 1f 2a 2a 2a 2a 1f 1f 1f 1f 2a 2a 2a 2a
+2a 2a 2a 2a 1f 1f 1f 1f 2a 2a 2a 2a 1f 1f 1f 1f
+3a 3a 3a 3a 2f 2f 2f 2f 3a 3a 3a 3a 2f 2f 2f 2f
+2f 2f 2f 2f 3a 3a 3a 3a 2f 2f 2f 2f 3a 3a 3a 3a
+END_NOTE_PITCH
 
 START_NOTE_COLOR
-FF0000 CONTIN CONTIN FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000 FF0000
-00FF00 CONTIN CONTIN RESETT CONTIN CONTIN 00FFA0 CONTIN CONTIN 00FF00 00FF00 00FF00 00FF00 00FF00 00FF00 00FF00
-0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF RESETT 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF
-FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF RESETT FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF FF00FF
+ff0000 CONTIN CONTIN ff0000 ff0000 ff0000 ff0000 ff0000 ff0000 ff0000 ff0000 ff0000 ff0000 ff0000 ff0000 ff0000
+00ff00 CONTIN CONTIN RESETT CONTIN CONTIN 00ffa0 CONTIN CONTIN 00ff00 00ff00 00ff00 00ff00 00ff00 00ff00 00ff00
+0000ff 0000ff 0000ff 0000ff 0000ff 0000ff 0000ff RESETT 0000ff 0000ff 0000ff 0000ff 0000ff 0000ff 0000ff 0000ff
+ff00ff ff00ff ff00ff ff00ff ff00ff ff00ff ff00ff RESETT ff00ff ff00ff ff00ff ff00ff ff00ff ff00ff ff00ff ff00ff
 END_NOTE_COLOR
 
 START_SONG_DATA
