@@ -5,10 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Data {
-    private static File getFile(String fileName) throws FileNotFoundException {
-        return new File(fileName);
-    }
-
     public static String getFileData(String fileName) throws FileNotFoundException {
         String fileData = new String();
         Scanner scanner = new Scanner(new File(fileName));
