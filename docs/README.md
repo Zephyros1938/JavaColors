@@ -12,4 +12,4 @@ To change which song is loaded, change [line number 11](/recompile.sh#L11C11) to
 
 - [How does a .zsong file work?](zsong.md)
 
-To see our license, view our [license file](/LICENSE)
+<sub>To see our license, view our [license file](/LICENSE).</sub>
