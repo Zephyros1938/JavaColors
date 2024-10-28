@@ -2,7 +2,9 @@ package FileData;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Data {
     public static String getFileData(String fileName) throws FileNotFoundException {
@@ -23,5 +25,9 @@ public class Data {
         String START_DELIMITER = "START_" + delimiter;
         return data.substring(data.indexOf(START_DELIMITER) + START_DELIMITER.length() + 1,
                 data.indexOf(END_DELIMITER) - 1);
+    }
+
+    public static ArrayList<String> dataChunkToArrayList(String chunkData){
+        return new ArrayList<String>(Arrays.asList(chunkData.split(" ")));
     }
 }
