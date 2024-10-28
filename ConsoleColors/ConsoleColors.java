@@ -80,7 +80,7 @@ public class ConsoleColors {
         return "\033[48;2;" + red + ";" + green + ";" + blue + "m";
     }
 
-    public static String HEX_BRIGHT_ZS(String keyCharacterBytes, String text) {
+    public static String HEX_BRIGHT_ZS_6(String keyCharacterBytes, String text) {
         // System.out.println(keyCharacterBytes);
         switch (keyCharacterBytes) {
             case "CONTIN":
@@ -100,6 +100,41 @@ public class ConsoleColors {
                 return "\033[48;2;" + hexR + ";" + hexG + ";" + hexB + "m" + text;
         }
         // return "\033[48;2;#" + keyCharacterBytes + "m";
+    }
+
+    public static String HEX_BRIGHT_ZS_3(String keyCharacterBytes, String text) {
+        // System.out.println(keyCharacterBytes);
+        switch (keyCharacterBytes) {
+            case "CON":
+                return text;
+            case "RET":
+                return RESET + "\n";
+            case "RES":
+                return RESET + text;
+            default:
+                final String rgbR = keyCharacterBytes.substring(0, 1);
+                final String rgbG = keyCharacterBytes.substring(1, 2);
+                final String rgbB = keyCharacterBytes.substring(2, 3);
+
+                final int hexR = Integer.parseInt(rgbR + rgbR, 16);
+                final int hexG = Integer.parseInt(rgbG + rgbG, 16);
+                final int hexB = Integer.parseInt(rgbB + rgbB, 16);
+                return "\033[48;2;" + hexR + ";" + hexG + ";" + hexB + "m" + text;
+        }
+    }
+
+    public static String HEX_BRIGHT_ZS_C(String keyCharacterBytes, String text) {
+        // System.out.println(keyCharacterBytes);
+        switch (keyCharacterBytes) {
+            case "CO":
+                return text;
+            case "RE":
+                return RESET + "\n";
+            case "RS":
+                return RESET + text;
+            default:
+                return "\033[48;5;" + Integer.parseInt(keyCharacterBytes, 16) + "m" + text;
+        }
     }
 
     public static String HEX_BRIGHT(String keyCharacterBytes, String text) {

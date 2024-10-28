@@ -8,27 +8,33 @@ import java.util.ArrayList;
 
 public class Games {
     public static void noteGame(String[] args) throws FileNotFoundException {
-        String data = Data.getFileData(args[0]);
+        final String data = Data.getFileData(args[0]);
 
-        String noteVolume = Data.getDataChunk("NOTE_VOLUME", data).replace("\n", "  ");
+        final String noteVolume = Data.getDataChunk("NOTE_VOLUME", data).replace("\n", "  ");
         ArrayList<String> noteVolumeSplit = Data.dataChunkToArrayList(noteVolume);
 
-        String notePitch = Data.getDataChunk("NOTE_PITCH", data).replace("\n", "  ");
+        final String notePitch = Data.getDataChunk("NOTE_PITCH", data).replace("\n", "  ");
         ArrayList<String> notePitchSplit = Data.dataChunkToArrayList(notePitch);
 
-        String noteColor = Data.getDataChunk("NOTE_COLOR", data).replace("\n", " RETURN ");
+        final String noteColor = Data.getDataChunk("NOTE_COLOR", data).replace("\n", " RE ");
         ArrayList<String> noteColorSplit = Data.dataChunkToArrayList(noteColor);
 
-        String songData = Data.getDataChunk("SONG_DATA", data);
+        final String songData = Data.getDataChunk("SONG_DATA", data);
 
         String totalData = new String();
 
         for (int i = 0; i < noteVolumeSplit.size(); i++) {
-            totalData += ConsoleColors.HEX_BRIGHT_ZS(noteColorSplit.get(i), notePitchSplit.get(i));
+            totalData += new GetColor().returnColor(noteColorSplit, notePitchSplit, i);
         }
 
         totalData += ConsoleColors.RESET;
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=\n" + songData + "\n=-=-=-=-=-=-=-=-=-=-=-=-=");
         System.out.println(totalData);
+    }
+}
+
+final class GetColor {
+    public String returnColor(ArrayList<String> nc, ArrayList<String> tp, Integer i){
+        return ConsoleColors.HEX_BRIGHT_ZS_C(nc.get(i), tp.get(i));
     }
 }

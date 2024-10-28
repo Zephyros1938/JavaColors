@@ -28,15 +28,27 @@ This determines the volume of the note.
 
 ### COLOR_DATA
 
-The contents of the COLOR_DATA chunk are composed of 3 hexadeimal bytes per note.
+The contents of the COLOR_DATA chunk are composed of 1-3 hexadeimal byte\(s\) per note.
+
+#### 24-Bit Color (TrueColor)
+
+Example: `00ff00 0000ff ff0000`
+
+#### 8-Bit Color (256 Color)
+
+Example: `0f0 00f f00`
+
+#### 256-Color
+
+Example: `52 15 c4`
 
 This chunk determines the background color of each note.
 
 #### Color Values
 
 Along with 3-byte hexadecimal colors, there are CONTIN, and RESETT values.
-- CONTIN: copy the color from the previous note.
-- RESETT: reset the color back to the terminal's default.
+- CONTIN/CON/CO: copy the color from the previous note.
+- RESETT/RES/RS: reset the color back to the terminal's default.
 
 ### SONG_DATA
 
